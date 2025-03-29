@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { EventType } from '../../../../interfaces'
 import { Button } from 'antd'
 import { MapPin, Timer } from 'lucide-react'

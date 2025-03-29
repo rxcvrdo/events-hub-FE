@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import {useState } from 'react'
 import General from './general'
 import LocationAndDate from './location-and-date'
 import Media from './media'

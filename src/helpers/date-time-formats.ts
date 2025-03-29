@@ -5,5 +5,6 @@ export const getDateFormat = (date: string) => {
 }
 
 export const getDateTimeFormat = (date: string) => {
+  if (!date) return "";
   return dayjs(date).format("DD MMM YYYY hh:mm A");
 }

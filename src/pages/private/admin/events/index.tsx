@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PageTitle from '../../../../components/page-title'
 import { Button, Table } from 'antd'
-import { data, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { deleteEvent, getEvents } from '../../../../api-services/events-service'
 import { toast } from 'react-toastify'
-import { Key, Pen, Trash2 } from 'lucide-react'
+import { Pen, Trash2 } from 'lucide-react'
 import { getDateTimeFormat } from '../../../../helpers/date-time-formats'
 
 const EventsPage = () => { 
@@ -77,7 +77,7 @@ const EventsPage = () => {
         {
           title: 'Actions',
           dataIndex: 'actions',
-          render: (text: any, record: any) => (
+          render: (_text: any, record: any) => (
             <div className='flex gap-5'>
               <Trash2 
               className='text-red-700'

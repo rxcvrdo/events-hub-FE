@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PageTitle from "../../../../components/page-title";
 import { BookingType } from "../../../../interfaces";
 import { toast } from "react-toastify";
@@ -107,7 +107,7 @@ const UserBookingsPage = () => {
       title: "Action",
       dataIndex: "action",
       key: "action",
-      render: (text: any, record: BookingType) => {
+      render: (record: BookingType) => {
         if (record.status === "booked") {
           return (
             <Popconfirm 

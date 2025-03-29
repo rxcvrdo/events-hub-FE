@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PageTitle from '../../../../../components/page-title'
 import EventForm from '../common/event-form'
 import { toast } from 'react-toastify'

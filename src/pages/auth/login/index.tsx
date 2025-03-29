@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import WelcomeContent from '../common/welcome-content'
 import { Button, Form, Input} from 'antd'
 import { Link, useNavigate } from 'react-router-dom'

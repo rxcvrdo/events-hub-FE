@@ -1,5 +1,5 @@
 import { Button, Upload } from 'antd'
-import React from 'react'
+
 import { EventFormStepProps } from '.';
 
 const Media = ({
@@ -33,7 +33,7 @@ const Media = ({
       <Upload
       listType='picture-card'
       beforeUpload={(file) => {
-        setSelectedMediaFiles((prev: any, index:any) => [...prev, file])
+        setSelectedMediaFiles((prev: any) => [...prev, file])
         return false;
       }}
       showUploadList={false}

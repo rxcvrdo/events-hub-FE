@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import MenuItems from './menu-items'
 
 import { Menu } from 'lucide-react'

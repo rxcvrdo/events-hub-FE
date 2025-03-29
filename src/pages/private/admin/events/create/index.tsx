@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PageTitle from '../../../../../components/page-title'
 import EventForm from '../common/event-form'
 

@@ -18,11 +18,11 @@ export interface EventType {
     date: string;
     time: string;
     media: string[];
-    ticketTypes: {
+    ticketTypes: [{
         name: string;
         price: number;
         limit: number;
-    }
+    }]
 }
 
 export interface BookingType {

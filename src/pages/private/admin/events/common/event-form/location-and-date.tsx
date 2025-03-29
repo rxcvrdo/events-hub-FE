@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { EventFormStepProps } from '.'
 import { Button, Form, Input } from 'antd'
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { EventType } from "../../../../interfaces";
 import { Button, Input } from "antd";
 import PaymentModal from "./payment-modal";
-import { CheckoutProvider, Elements } from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { toast } from "react-toastify";
 import { getClientSecret } from "../../../../api-services/payments-service";
@@ -13,7 +13,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const TicketsSelection = ({ eventData }: { eventData: EventType }) => {
   const [loading, setLoading] = useState(false);
-  const ticketTypes = eventData.ticketTypes;
+  const ticketTypes = eventData.ticketTypes ;
   const [selectedTicketType, setSelectedTicketType] = useState<string>("");
   const [maxCount, setMaxCount] = useState<number>(1);
   const [selectedTicketCount, setSelectedTicketCount] = useState<number>(1);
@@ -80,7 +80,7 @@ const TicketsSelection = ({ eventData }: { eventData: EventType }) => {
           Select ticket type
         </h1>
         <div className="flex flex-wrap gap-5">
-          {ticketTypes.map((ticketType, index) => 
+          {ticketTypes.map((ticketType:any, index:any) => 
             {
               const availableTickets = ticketType.available?? ticketType.limit;
               return (<div

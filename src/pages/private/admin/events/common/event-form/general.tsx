@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { EventFormStepProps } from ".";
 import { Button, Form, Input, Tag } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,7 @@ const General = ({
   const onGuestRemove = (index: number) => {
     const existingGuest = eventData.guests || [];
     const newGuests = existingGuest.filter(
-      (guest: string, i: number) => i !== index
+      (_guest: any, i: number) => i !== index
     );
     setEventData({ ...eventData, guests: newGuests });
   };

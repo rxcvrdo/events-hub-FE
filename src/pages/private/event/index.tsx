@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { EventType } from '../../../interfaces'
 import { getEventById } from '../../../api-services/events-service'
 import { useParams } from 'react-router-dom'

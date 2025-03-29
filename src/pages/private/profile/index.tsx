@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PageTitle from '../../../components/page-title'
 import usersGlobalStore, { UserStoreType } from '../../../store/users-store'
 import { getDateTimeFormat } from '../../../helpers/date-time-formats'
@@ -24,7 +24,7 @@ const ProfilePage = () => {
         {renderUserProperty("ID", currentUser?._id)}
         {renderUserProperty("Name", currentUser?.name)}
         {renderUserProperty("Email", currentUser?.email)}
-        {renderUserProperty("Joined", getDateTimeFormat(currentUser?.createdAt))}
+        {renderUserProperty("Joined", getDateTimeFormat(currentUser!.createdAt))}
       </div>
     </div>
   )
