@@ -16,7 +16,6 @@ const UserBookingsPage = () => {
   const getData = async () => {
     try {
       setLoading(true);
-      // Assume fetchBookings is a function that fetches bookings from an API
       const response = await getUserBookings();
       setBookings(response.data);
     } catch (error: any) {
@@ -31,15 +30,15 @@ const UserBookingsPage = () => {
     getData();
   }, []);
 
-  const onCancelBooking = async (bookingId: BookingType) => {
+  const onCancelBooking = async (booking: BookingType) => {
     try {
       setLoading(true);
       const payload = {
-        eventId: bookingId.event._id,
-        bookingId: bookingId._id,
-        ticketTypeName: bookingId.ticketType,
-        ticketsCount: bookingId.ticketsCount,
-        paymentId: bookingId.paymentId,
+        eventId: booking.event._id,
+        bookingId: booking._id,
+        ticketTypeName: booking.ticketType,
+        ticketsCount: booking.ticketsCount,
+        paymentId: booking.paymentId,
       };
       await cancelBooking(payload);
       toast.success("Booking cancelled successfully");
@@ -52,7 +51,27 @@ const UserBookingsPage = () => {
     }
   };
 
-  const colunmns = [
+  const handleAddToCalendar = (record: BookingType) => {
+    const startDate = new Date(`${record.event.date}T${record.event.time}`);
+    const endDate = new Date(startDate.getTime() + 60 * 60 * 1000);
+
+    const formatDate = (date: Date) =>
+      date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+    const dates = `${formatDate(startDate)}/${formatDate(endDate)}`;
+    const text = encodeURIComponent(record.event.name);
+    const details = encodeURIComponent(record.event.description || "");
+    const location = encodeURIComponent(
+      `${record.event.address || ""} ${record.event.postcode || ""}`.trim()
+    );
+  
+
+    const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${location}&`;
+
+    window.open(calendarUrl, "_blank");
+  };
+
+  const columns = [
     {
       title: "Event Name",
       dataIndex: "event",
@@ -65,7 +84,6 @@ const UserBookingsPage = () => {
       key: "eventDate",
       render: (event: any) => getDateTimeFormat(`${event.date} ${event.time}`),
     },
-
     {
       title: "Ticket Type",
       dataIndex: "ticketType",
@@ -77,16 +95,15 @@ const UserBookingsPage = () => {
       key: "ticketsCount",
     },
     {
-      title: "Total Price ",
+      title: "Total Price",
       dataIndex: "totalAmount",
       key: "totalAmount",
-      render: (totalAmount: number) => {
-        return `£${totalAmount.toFixed(2)}`;
-      },
+      render: (totalAmount: number) => `£${totalAmount.toFixed(2)}`,
     },
     {
       title: "Booking Date",
       dataIndex: "createdAt",
+      key: "bookingDate",
       render: (createdAt: string) => {
         const date = new Date(createdAt);
         return date.toLocaleDateString("en-UK", {
@@ -95,7 +112,6 @@ const UserBookingsPage = () => {
           day: "2-digit",
         });
       },
-      key: "bookingDate",
     },
     {
       title: "Status",
@@ -107,26 +123,35 @@ const UserBookingsPage = () => {
       title: "Action",
       dataIndex: "action",
       key: "action",
-      render: (_:any,record: BookingType) => {
+      render: (_: any, record: BookingType) => {
         if (record.status === "booked") {
           return (
-            <Popconfirm 
-            title="Are you sure to cancel this booking?"
-            onConfirm={() => onCancelBooking(record)}
-            okText="Yes"
-            cancelText="No"
+            <Popconfirm
+              title="Are you sure to cancel this booking?"
+              onConfirm={() => onCancelBooking(record)}
+              okText="Yes"
+              cancelText="No"
             >
-              <span
-              className="text-red-500 cursor-pointer text-sm underline"
-             
-            >
-              Cancel
-            </span>
+              <span className="text-red-500 cursor-pointer text-sm underline">
+                Cancel
+              </span>
             </Popconfirm>
           );
         }
         return "";
       },
+    },
+    {
+      title: "Calendar",
+      key: "calendar",
+      render: (_: any, record: BookingType) => (
+        <button
+          onClick={() => handleAddToCalendar(record)}
+          className="btn btn-primary text-sm underline cursor-pointer hover:text-blue-700"
+        >
+          Add to Calendar
+        </button>
+      ),
     },
   ];
 
@@ -135,7 +160,7 @@ const UserBookingsPage = () => {
       <PageTitle title="bookings" />
       <Table
         dataSource={bookings}
-        columns={colunmns}
+        columns={columns}
         loading={loading}
         rowKey="_id"
         pagination={false}
