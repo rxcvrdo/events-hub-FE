@@ -20,40 +20,57 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+       
         <Routes>
-          <Route path="/login" element={
-          <PublicLayout>
-            <LoginPage />
-          </PublicLayout>
-            } />
-          <Route path="/register" element={
-            <PublicLayout>
-            <RegisterPage />
-            </PublicLayout>
-            } />
-          <Route path="/" element={
-            <PrivateLayout>
-            <HomePage />
-            </PrivateLayout>
-            } />
-
-          <Route path="/event/:id" 
-          element={
-            <PrivateLayout>
-            <EventInfoPage />
-            </PrivateLayout>
-            } />
-          <Route path="/profile" element={
-            <PrivateLayout>
-            <ProfilePage/>
-            </PrivateLayout>
-            } />
-          <Route path="/profile/bookings" element={
-            <PrivateLayout>
-            <UserBookingPage />
-            </PrivateLayout>
-            } />
-            <Route
+          <Route
+            path="/login"
+            element={
+              <PublicLayout>
+                <LoginPage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicLayout>
+                <RegisterPage />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <PrivateLayout>
+                <HomePage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/event/:id"
+            element={
+              <PrivateLayout>
+                <EventInfoPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateLayout>
+                <ProfilePage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/profile/bookings"
+            element={
+              <PrivateLayout>
+                <UserBookingPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
             path="/admin/events/create"
             element={
               <PrivateLayout>
@@ -61,42 +78,40 @@ function App() {
               </PrivateLayout>
             }
           />
-
           <Route
-          path="/admin/events/edit/:id"
-          element={
-            <PrivateLayout>
-              <EditEventPage />
-            </PrivateLayout>
-          }/>
+            path="/admin/events/edit/:id"
+            element={
+              <PrivateLayout>
+                <EditEventPage />
+              </PrivateLayout>
+            }
+          />
           <Route
-          path="/admin/events"
-          element={
-            <PrivateLayout>
-              <EventsPage />
-            </PrivateLayout>
-          }/>
+            path="/admin/events"
+            element={
+              <PrivateLayout>
+                <EventsPage />
+              </PrivateLayout>
+            }
+          />
           <Route
-          path="/admin/bookings"
-          element={
-            <PrivateLayout>
-              <AdminBookingsPage />
-            </PrivateLayout>
-          
-          }/>
+            path="/admin/bookings"
+            element={
+              <PrivateLayout>
+                <AdminBookingsPage />
+              </PrivateLayout>
+            }
+          />
           <Route
-          path="/admin/users"
-          element={
-            <PrivateLayout>
-              <UsersPage />
-            </PrivateLayout>
-          }/>
+            path="/admin/users"
+            element={
+              <PrivateLayout>
+                <UsersPage />
+              </PrivateLayout>
+            }
+          />
         </Routes>
-        <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          theme="colored"
-        />
+        <ToastContainer position="top-center" autoClose={3000} theme="colored" />
       </BrowserRouter>
     </ThemeProvider>
   );

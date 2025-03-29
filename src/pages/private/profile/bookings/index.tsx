@@ -107,7 +107,7 @@ const UserBookingsPage = () => {
       title: "Action",
       dataIndex: "action",
       key: "action",
-      render: (record: BookingType) => {
+      render: (_:any,record: BookingType) => {
         if (record.status === "booked") {
           return (
             <Popconfirm 
