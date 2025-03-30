@@ -1,4 +1,66 @@
+# Events Hub Client
+Events Hub Client is the front-end application for the Events Hub platform. It provides an intuitive user interface for both regular users and admins to interact with event data, book events, and manage event-related activities.
+
+## Features
+### For Admins
+Event Management: Create, edit, and delete events.
+
+User Management: View all users and all events.
+
+Admin Privileges: Promote other users to admin status.
+
+### For Users
+Event Booking: Book events easily.
+
+Cancellation: Cancel event bookings.
+
+Calendar Integration: Add events directly to your calendar.
+
+Technologies Used
+React & React DOM: Building the user interface.
+
+Vite: Fast development server and build tool.
+
+TypeScript: Enhancing code quality with static type checking.
+
+Tailwind CSS: Utility-first CSS framework for rapid UI styling.
+
+Ant Design (antd): UI components library.
+
+Stripe: Payment integration via @stripe/react-stripe-js and @stripe/stripe-js.
+
+Firebase: Integration for backend services.
+
+Axios: Handling HTTP requests.
+
+React Router DOM: Client-side routing.
+
+React Toastify: Notifications and alerts.
+
+Zustand: State management.
+
+ESLint: Code linting and quality control.
+
+### Installation
+Clone the Repository:
+
+bash
+Copy
+git clone <repository-url>
+cd <repository-directory>/client
+Install Dependencies:
+
+bash
+Copy
+npm install
+Configure Environment Variables:
+
+Create a .env file in the root of the client directory with any necessary environment variables.
+
+
+
 # React + TypeScript + Vite
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -12,7 +74,7 @@ Currently, two official plugins are available:
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
 ```js
-export default tseslint.config({
+exportdefault tseslint.config({
   extends: [
     // Remove ...tseslint.configs.recommended and replace with this
     ...tseslint.configs.recommendedTypeChecked,
