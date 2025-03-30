@@ -1,6 +1,32 @@
 # Events Hub Client
 Events Hub Client is the front-end application for the Events Hub platform. It provides an intuitive user interface for both regular users and admins to interact with event data, book events, and manage event-related activities.
 
+## Live site:
+
+live site can be accessed here : https://events-hub-9l8kmb7ah-rxcvrdos-projects.vercel.app
+
+# IMPORTANT
+
+sometimes when login in users are hit with server error. Simply log into render (https://render.com/) and login using these credentials 
+
+EMAIL: Eventshub1212@gmail.com
+Password: EventsHub!1212? 
+
+redeploy server and it should work fine! 
+
+### Admin login details for live version testing:
+
+test1@gmail.com
+password: 12345678
+
+### User login details for live version testing: 
+test3@gmail.com
+password: 12345678
+
+Or register and make your own user account!
+
+
+
 ## Features
 ### For Admins
 Event Management: Create, edit, and delete events.
@@ -16,7 +42,7 @@ Cancellation: Cancel event bookings.
 
 Calendar Integration: Add events directly to your calendar.
 
-Technologies Used
+## Technologies Used
 React & React DOM: Building the user interface.
 
 Vite: Fast development server and build tool.
