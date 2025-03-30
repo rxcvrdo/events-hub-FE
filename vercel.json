@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/api/:match*",
-        "destination": "https://events-hub-server.onrender.com/api/:match*"
+        "destination": "https://events-hub-server-5rqq.onrender.com/api/:match*"
       },
       {
         "source": "/(.*)",
